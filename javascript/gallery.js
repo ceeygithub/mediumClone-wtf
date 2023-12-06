@@ -66,7 +66,7 @@ const addNewImage = () => {
 }
 
 
-galleryForm.addEventListener('submit',  (event) => {
+galleryForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const imageNameValue = imageNameInput.value;
   const imageLinkValue = imageLinkInput.value;
@@ -78,6 +78,33 @@ galleryForm.addEventListener('submit',  (event) => {
   imageList.push(imgObj)
   addNewImage()
 })
+
+const removeFirstImage = () => {
+  // Check if there are images in the gallery
+  if (imageList.length > 0) {
+    // Remove the first image from the imageList array
+    const removedImage = imageList.shift();
+
+    // Find the first list item in the gallery
+    const firstListItem = document.querySelector('.gallery li:first-child');
+
+    // If a list item is found, remove it from the gallery
+    if (firstListItem) {
+      firstListItem.remove();
+    }
+
+    // Log the removed image details (optional)
+    console.log('Removed Image:', removedImage);
+  }
+}
+
+// Event listener for the Remove button
+removeButton = document.querySelector('.remove');
+removeButton.addEventListener('click', () => {
+  // Call the removeFirstImage function when the Remove button is clicked
+  removeFirstImage();
+});
+
 
 
 fillGallery();
