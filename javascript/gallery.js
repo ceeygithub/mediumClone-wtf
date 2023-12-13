@@ -85,7 +85,6 @@ galleryForm.addEventListener('submit', (event) => {
 const removeFirstImage = () => {
   const firstListItem = document.querySelector('.gallery li:first-child');
   if (firstListItem) {
-    imageList.shift();
     firstListItem.remove();
   }
 };
@@ -99,7 +98,7 @@ removeButton.addEventListener('click', () => {
 //   const children = gallery.children;
 //   console.log(children)
 //   const firstChild = children[0];
-//   imageList.shift();
+//   // imageList.shift();
 
 //   if (firstChild) {
 //     firstChild.remove();
