@@ -82,36 +82,31 @@ galleryForm.addEventListener('submit', (event) => {
 
 
 
-// const removeFirstImage = () => {
-//   const firstListItem = document.querySelector('.gallery li:first-child');
-//   if (firstListItem) {
-//     // Update the DOM: Remove the first child from the gallery
-//     firstListItem.remove();
-
-//     // Update the imageList: Remove the first item from the array
-//     const removedImage = imageList.shift();
-//   }
-// };
-
-// // Event listener for the Remove button
-// removeButton = document.querySelector('.remove');
-// removeButton.addEventListener('click', () => {
-//   // Call the removeFirstImage function when the Remove button is clicked
-//   removeFirstImage();
-// });
-
-const removeImage = () => {
-  const children = gallery.children;
-  console.log(children)
-  const firstChild = children[0];
-  const removedImage = imageList.shift();
-
-  if (firstChild) {
-    firstChild.remove();
+const removeFirstImage = () => {
+  const firstListItem = document.querySelector('.gallery li:first-child');
+  if (firstListItem) {
+    imageList.shift();
+    firstListItem.remove();
   }
-}
+};
+
 removeButton = document.querySelector('.remove');
-removeButton.addEventListener('click', removeImage);
+removeButton.addEventListener('click', () => {
+  removeFirstImage();
+});
+
+// const removeImage = () => {
+//   const children = gallery.children;
+//   console.log(children)
+//   const firstChild = children[0];
+//   imageList.shift();
+
+//   if (firstChild) {
+//     firstChild.remove();
+//   }
+// }
+// removeButton = document.querySelector('.remove');
+// removeButton.addEventListener('click', removeImage);
 
 
 
